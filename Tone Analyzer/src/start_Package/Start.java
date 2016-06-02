@@ -21,7 +21,7 @@ public class Start {
 
 		
 		ToneAnalyzer service = new ToneAnalyzer(ToneAnalyzer.VERSION_DATE_2016_02_11);
-		service.setUsernameAndPassword("6370fa92-72ff-4ca0-a300-8fef3d62efb0", "AXCjTnW7vESl");
+		service.setUsernameAndPassword();
 		service.setEndPoint("https://gateway.watsonplatform.net/tone-analyzer/api");
 	
 
