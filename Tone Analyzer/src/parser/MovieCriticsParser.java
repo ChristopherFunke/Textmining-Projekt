@@ -8,10 +8,10 @@ public class MovieCriticsParser {
 
 
 	//	FileReader fr = new FileReader("C:\\Users\\Christopher\\Desktop\\TestOrdner\\ShakespearePlaysPlus\\TXT");
-	public String readFile() throws IOException{
+	public String readFile() throws IOException {
 		String result = "";
 
-		try(BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Christopher\\Documents\\Scripte\\4. Semester\\Textmining\\Film Critics\\Deadpool\\Deadpool-Audience-5stars.txt"))) {
+		try(BufferedReader br = new BufferedReader(new FileReader("/Users/danielvolz/git/Textmining-Projekt/Tone Analyzer/Batman v Superman/Critics/The New Yorker -- Bad.txt"))) {
 			StringBuilder sb = new StringBuilder();
 			String line = br.readLine();
 
@@ -23,5 +23,6 @@ public class MovieCriticsParser {
 			String everything = sb.toString();
 			result = everything;
 		}
-		return result ;}
+		return result ;
+	}
 }
