@@ -16,4 +16,3 @@ target/
 
 #config-file
 config.properties
-/src/config.properties

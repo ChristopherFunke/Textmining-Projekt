@@ -1,7 +1,7 @@
 package de.hdmstuttgart.reviewanalyzer.json2csv.parser;
 
-import com.ibm.watson.developer_cloud.tone_analyzer.v3_beta.ToneAnalyzer;
-import com.ibm.watson.developer_cloud.tone_analyzer.v3_beta.model.ToneAnalysis;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.ToneAnalyzer;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneAnalysis;
 import de.hdmstuttgart.reviewanalyzer.Review;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -18,18 +18,18 @@ public class Toneparser {
 
     private static final String FILENAME = "config";
 
-    private static ResourceBundle myBundle =
+    private static final ResourceBundle myBundle =
             ResourceBundle.getBundle(FILENAME);
-    boolean postiveReview = false;
-    String headers = "";
-    ArrayList<Review> allReviews = new ArrayList<>();
+    private final ArrayList<Review> allReviews = new ArrayList<>();
+    private boolean postiveReview = false;
+    private String headers = "";
     private int toneCounter = 0;
 
-    public int getToneCounter() {
+    private int getToneCounter() {
         return toneCounter;
     }
 
-    public void setToneCounter(int toneCounter) {
+    private void setToneCounter(int toneCounter) {
         this.toneCounter = toneCounter;
     }
 
@@ -41,7 +41,7 @@ public class Toneparser {
         this.postiveReview = postiveReview;
     }
 
-    public String getHeaders() {
+    private String getHeaders() {
         return headers;
     }
 
@@ -49,16 +49,16 @@ public class Toneparser {
         this.headers = headers;
     }
 
-    public int getHeadersCount() {
+    private int getHeadersCount() {
         return this.getHeaders().split(",").length;
     }
 
-    public ToneAnalyzer initToneAnalysis() {
+    private ToneAnalyzer initToneAnalysis() {
 
         String username = myBundle.getString("username");
         String password = myBundle.getString("password");
 
-        ToneAnalyzer service = new ToneAnalyzer(ToneAnalyzer.VERSION_DATE_2016_02_11);
+        ToneAnalyzer service = new ToneAnalyzer(ToneAnalyzer.VERSION_DATE_2016_05_19);
         service.setUsernameAndPassword(username, password);
         service.setEndPoint("https://gateway.watsonplatform.net/tone-analyzer/api");
 
@@ -67,17 +67,17 @@ public class Toneparser {
 
     public String parseAll(ArrayList<Review> reviewArrayList) throws Exception {
         StringBuilder stb = new StringBuilder();
-        String jsonTone = "";
+        String jsonTone;
         int headersCount = getHeadersCount();
 
         stb.append(this.getHeaders());
 
         for (Review r : reviewArrayList) {
-            ToneAnalysis tone = this.initToneAnalysis().getTone(r.getText()).execute();
+            ToneAnalysis tone = this.initToneAnalysis().getTone(r.getText(), null).execute();
 
             jsonTone = tone.getDocumentTone().toString();
             //System.out.println(r.getId() + " " + r.isPositive() +" " + r.getName());
-            stb.append(r.getName() + ", ");
+            stb.append(r.getName()).append(", ");
             stb.append(this.parseOneReview(jsonTone, r.isPositive()));
 
         }
@@ -86,8 +86,8 @@ public class Toneparser {
         return stb.toString();
     }
 
-    public String parseOneReview(String reviewJson, boolean isPositive) {
-        String target = "";
+    private String parseOneReview(String reviewJson, boolean isPositive) {
+        String target;
         if (isPositive)
             target = "pos, ";
         else
@@ -179,10 +179,10 @@ public class Toneparser {
 //	}
 
 
-    public String readFile(String filename) throws IOException {
+    private String readFile(String filename) throws IOException {
 
 
-        String result = "";
+        String result;
 
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             StringBuilder sb = new StringBuilder();

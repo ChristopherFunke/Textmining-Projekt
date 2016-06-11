@@ -1,29 +1,24 @@
 package de.hdmstuttgart.reviewanalyzer;
 
-import com.ibm.watson.developer_cloud.tone_analyzer.v3_beta.ToneAnalyzer;
-import com.ibm.watson.developer_cloud.tone_analyzer.v3_beta.model.ToneAnalysis;
+import com.google.common.base.Stopwatch;
 import de.hdmstuttgart.reviewanalyzer.json2csv.parser.Toneparser;
 import de.hdmstuttgart.reviewanalyzer.json2csv.writer.Csvwriter;
 
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 
-public class Start {
-
+class Start {
+    private static final Stopwatch timer = Stopwatch.createStarted();
     /**
      * Properties file name.
      */
     private static final String FILENAME = "config";
 
-	private static ResourceBundle myBundle =
-			ResourceBundle.getBundle(FILENAME);
+    private static final ResourceBundle myBundle =
+            ResourceBundle.getBundle(FILENAME);
 
     public static void main(String[] args) throws Exception {
-        double startTime = System.currentTimeMillis();
 
         Toneparser tParser = new Toneparser();
 
@@ -43,10 +38,8 @@ public class Start {
 
         writer.writeToFile(allParsedJsons, "reviews.csv");
 
-        double endTime = System.currentTimeMillis();
-        double totalTime = endTime - startTime;
 
-        System.out.println("das Programm brauchte: ~" + (totalTime / 1000d) / 60d + "min und hat "
+        System.out.println("das Programm brauchte: ~" + timer.stop() + " und hat "
                 + Review.getCounter() + " Reviews bearbeitet");
 
 	}

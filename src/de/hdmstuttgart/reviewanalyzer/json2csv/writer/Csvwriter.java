@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Csvwriter {
 
 
-    public void writeToFile(String output, String fileName) throws FileNotFoundException {
+    public void writeToFile(String output, String fileName) {
         BufferedWriter writer = null;
         try {
             writer = new BufferedWriter(new FileWriter(fileName));
