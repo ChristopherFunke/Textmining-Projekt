@@ -1,6 +1,8 @@
 package de.hdmstuttgart.reviewanalyzer;
 
 import com.google.common.base.Stopwatch;
+
+import de.hdmstuttgart.reviewanalyzer.Review;
 import de.hdmstuttgart.reviewanalyzer.json2csv.parser.Toneparser;
 import de.hdmstuttgart.reviewanalyzer.json2csv.writer.Csvwriter;
 

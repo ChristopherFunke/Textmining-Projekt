@@ -2,7 +2,9 @@ package de.hdmstuttgart.reviewanalyzer.json2csv.parser;
 
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.ToneAnalyzer;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneAnalysis;
+
 import de.hdmstuttgart.reviewanalyzer.Review;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
