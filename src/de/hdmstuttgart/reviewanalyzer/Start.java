@@ -17,7 +17,7 @@ public class Start {
     /**
      * Properties file name.
      */
-    private static final String FILENAME = "resource/config";
+    private static final String FILENAME = "config";
 
 	private static ResourceBundle myBundle =
 			ResourceBundle.getBundle(FILENAME);

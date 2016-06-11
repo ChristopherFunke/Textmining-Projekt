@@ -15,5 +15,5 @@ log/
 target/
 
 #config-file
-/src/resource/config.properties
+/config.properties
 
