@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="com.ibm.watson.developer_cloud:java-sdk:3.0.0-RC1" type="repository">
+    <properties maven-id="com.ibm.watson.developer_cloud:java-sdk:3.0.0-RC1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ibm/watson/developer_cloud/java-sdk/3.0.0-RC1/java-sdk-3.0.0-RC1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.2.0/okhttp-3.2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okio/okio/1.6.0/okio-1.6.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp-ws/3.2.0/okhttp-ws-3.2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp-urlconnection/3.2.0/okhttp-urlconnection-3.2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ibm/watson/developer_cloud/java-sdk/3.0.0-RC1/java-sdk-3.0.0-RC1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
